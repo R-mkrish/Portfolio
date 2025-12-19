@@ -1,0 +1,255 @@
+.projects {
+  background: var(--bg-gradient-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-wrapper {
+  margin-top: 3rem;
+  position: relative;
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.project-card {
+  min-width: 100%;
+  background: var(--bg-gradient-subtle);
+  padding: 3rem;
+  border-radius: 1rem;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-slow);
+  opacity: 0.7;
+  transform: scale(0.95);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--bg-gradient);
+  transform: scaleX(0);
+  transition: transform 0.6s ease;
+}
+
+.project-card.active {
+  opacity: 1;
+  transform: scale(1);
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+.project-card.active::before {
+  transform: scaleX(1);
+}
+
+.project-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.project-header h3 {
+  background: var(--bg-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0;
+  font-size: 1.75rem;
+}
+
+.project-link {
+  color: var(--secondary-color);
+  font-weight: 500;
+  white-space: nowrap;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.project-link:hover {
+  color: var(--primary-color);
+  transform: translateX(5px);
+}
+
+.project-summary {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.project-bullets {
+  list-style: none;
+}
+
+.project-bullets li {
+  padding: 0.75rem 0;
+  padding-left: 1.5rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  position: relative;
+  transition: var(--transition);
+}
+
+.project-bullets li:hover {
+  color: var(--text-primary);
+  padding-left: 2rem;
+}
+
+.project-bullets li::before {
+  content: "▹";
+  color: var(--primary-color);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+  transition: var(--transition);
+}
+
+.project-bullets li:hover::before {
+  color: var(--secondary-color);
+  transform: translateX(5px);
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.carousel-btn {
+  background: var(--bg-gradient);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+}
+
+.carousel-btn:hover::before {
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-btn:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-lg);
+}
+
+.carousel-btn:active {
+  transform: scale(0.95);
+}
+
+.carousel-btn svg {
+  position: relative;
+  z-index: 1;
+}
+
+.carousel-indicators {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--border-color);
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+}
+
+.indicator::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: var(--bg-gradient);
+  transition: var(--transition);
+}
+
+.indicator.active {
+  background: transparent;
+}
+
+.indicator.active::before {
+  width: 12px;
+  height: 12px;
+}
+
+.indicator:hover {
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    padding: 2rem;
+  }
+
+  .project-header {
+    flex-direction: column;
+  }
+
+  .project-header h3 {
+    font-size: 1.5rem;
+  }
+
+  .carousel-controls {
+    gap: 1rem;
+  }
+
+  .carousel-btn {
+    width: 45px;
+    height: 45px;
+  }
+}
+

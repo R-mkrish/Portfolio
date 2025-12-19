@@ -1,0 +1,24 @@
+.about {
+  background: var(--bg-gradient-subtle);
+  position: relative;
+}
+
+.about-content {
+  max-width: 800px;
+  margin-top: 2rem;
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.about-content strong {
+  background: var(--bg-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+

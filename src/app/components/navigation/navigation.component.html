@@ -1,0 +1,22 @@
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-content">
+      <a href="#hero" class="logo" (click)="scrollToSection('#hero'); $event.preventDefault()">
+        Portfolio
+      </a>
+      <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" [attr.aria-expanded]="isMobileMenuOpen" aria-label="Toggle navigation menu">
+        <span class="hamburger-line" [class.active]="isMobileMenuOpen"></span>
+        <span class="hamburger-line" [class.active]="isMobileMenuOpen"></span>
+        <span class="hamburger-line" [class.active]="isMobileMenuOpen"></span>
+      </button>
+      <ul class="nav-menu" [class.mobile-open]="isMobileMenuOpen">
+        <li *ngFor="let item of menuItems">
+          <a [href]="item.anchor" (click)="scrollToSection(item.anchor); $event.preventDefault(); closeMobileMenu()">
+            {{ item.label }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+

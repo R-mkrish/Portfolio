@@ -1,0 +1,32 @@
+<section id="tech-stack" class="tech-stack section">
+  <div class="container">
+    <h2>Tech Stack</h2>
+    <div class="tech-grid">
+      <div class="tech-category">
+        <h3>Frontend</h3>
+        <ul>
+          <li *ngFor="let tech of frontend">{{ tech }}</li>
+        </ul>
+      </div>
+      <div class="tech-category">
+        <h3>Backend</h3>
+        <ul>
+          <li *ngFor="let tech of backend">{{ tech }}</li>
+        </ul>
+      </div>
+      <div class="tech-category">
+        <h3>Tools & DevOps</h3>
+        <ul>
+          <li *ngFor="let tech of tools">{{ tech }}</li>
+        </ul>
+      </div>
+      <div class="tech-category">
+        <h3>Other</h3>
+        <ul>
+          <li *ngFor="let tech of other">{{ tech }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+

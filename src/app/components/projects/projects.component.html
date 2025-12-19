@@ -1,0 +1,42 @@
+<section id="projects" class="projects section">
+  <div class="container">
+    <h2>Featured Projects</h2>
+    <div class="carousel-wrapper">
+      <div class="carousel-container" [style.transform]="'translateX(-' + (currentIndex * 100) + '%)'">
+        <div *ngFor="let project of projects; let i = index" class="project-card" [class.active]="i === currentIndex">
+          <div class="project-header">
+            <h3>{{ project.name }}</h3>
+            <a *ngIf="project.url" [href]="project.url" target="_blank" rel="noopener noreferrer" class="project-link">
+              Visit Site →
+            </a>
+          </div>
+          <p class="project-summary">{{ project.summary }}</p>
+          <ul class="project-bullets">
+            <li *ngFor="let bullet of project.bullets">{{ bullet }}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-btn prev" (click)="previousProject()" aria-label="Previous project">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
+        <div class="carousel-indicators">
+          <span *ngFor="let project of projects; let i = index" 
+                class="indicator" 
+                [class.active]="i === currentIndex"
+                (click)="goToProject(i)"
+                [attr.aria-label]="'Go to project ' + (i + 1)">
+          </span>
+        </div>
+        <button class="carousel-btn next" (click)="nextProject()" aria-label="Next project">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
